@@ -1,9 +1,12 @@
 import re
 from nltk.corpus import wordnet
 import sys
-sys.path.append(r'C:\...\zmqRemoteApi-master\zmqRemoteApi-master\clients\python') #path de zmqRemoteApi
-import time
 from zmqRemoteApi import RemoteAPIClient
+from nltk.tokenize import word_tokenize
+from nltk.stem import WordNetLemmatizer
+from nltk.stem import PorterStemmer
+sys.path.append(r'C:\...\zmqRemoteApi-master\zmqRemoteApi-master\clients\python') #path de zmqRemoteApi
+
 
 # Función para obtener el mapeo de sinónimos a las formas base de las direcciones
 def get_synonym_mapping():
