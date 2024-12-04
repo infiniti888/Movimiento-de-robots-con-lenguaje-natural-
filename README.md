@@ -4,7 +4,7 @@ Este proyecto permite controlar un robot en **CoppeliaSim** utilizando comandos 
 
 ## **Características:**
 
-- **Procesamiento de Texto Natural**: Detecta direcciones como **"left"**, **"right"**, **"backward"**, **"forward"** y sus sinónimos a partir de un texto de entrada.
+- **Procesamiento de Texto Natural**: Detecta direcciones como **"left"**, **"right"**, **"back"**, **"forward"** y sus sinónimos a partir de un texto de entrada.
 - **Integración con CoppeliaSim**: Mueve el robot en la simulación de **CoppeliaSim** según las direcciones encontradas en el texto.
 - **Soporte de Sinónimos**: Incluye sinónimos como **['ahead', 'onward', 'onwards', 'forwards', 'forrader']** para **"forward"**.
 - **Direcciones base**: Las direcciones son normalizadas a las formas base **"left"**, **"right"**, **"back"** y **"forward"** para facilitar el movimiento del robot.
