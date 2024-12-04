@@ -39,14 +39,11 @@ def find_directions_with_base(text):
     """
     synonym_mapping = get_synonym_mapping()
 
-    # Crear un patrón de búsqueda que coincida con las palabras clave o sinónimos
-    pattern = r'\b(' + '|'.join(re.escape(word) for word in synonym_mapping.keys()) + r')\b'
+    # Tokenizar el texto utilizando NLTK
+    tokens = word_tokenize(text.lower())
 
-    # Buscar las coincidencias de las palabras en el texto
-    matches = re.findall(pattern, text, flags=re.IGNORECASE)
-
-    # Normalizar las palabras encontradas utilizando el mapeo de sinónimos
-    normalized = [synonym_mapping[match.lower()] for match in matches]
+    # Filtrar y normalizar los tokens utilizando el mapeo de sinónimos
+    normalized = [synonym_mapping[token] for token in tokens if token in synonym_mapping]
 
     return normalized
 
