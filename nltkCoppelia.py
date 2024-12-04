@@ -34,16 +34,26 @@ def get_synonym_mapping():
 # Función para encontrar las direcciones en el texto y normalizarlas a las formas base
 def find_directions_with_base(text):
     """
-    Encuentra las palabras de direcciones en el texto y las normaliza
-    a las formas base: "back", "forward", "left", "right".
+    Encuentra las palabras de direcciones en el texto, aplica stemmización,
+    reducir una palabra a su raíz o base, eliminando los sufijos y prefijos.
+    luego las normaliza a las formas base: "back", "forward", "left", "right".
     """
+    # Inicializar el stemmer
+    stemmer = PorterStemmer()
+
+    # Obtener el mapeo de sinónimos
     synonym_mapping = get_synonym_mapping()
 
     # Tokenizar el texto utilizando NLTK
     tokens = word_tokenize(text.lower())
 
-    # Filtrar y normalizar los tokens utilizando el mapeo de sinónimos
-    normalized = [synonym_mapping[token] for token in tokens if token in synonym_mapping]
+    # stemmización  y filtrar las palabras en base al mapeo
+    normalized = []
+    for token in tokens:
+        stemmed_word = stemmer.stem(token)
+        print(stemmed_word)
+        if stemmed_word in synonym_mapping:        # Comprobar si está en los sinónimos mapeados
+            normalized.append(synonym_mapping[stemmed_word])
 
     return normalized
 
